@@ -1,0 +1,6 @@
+.Dropdown-control {
+  border-radius: 8px !important;
+  height: 32px;
+  margin-bottom: 16px;
+  width: calc(100% - 8px);
+}

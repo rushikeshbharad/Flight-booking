@@ -1,0 +1,7 @@
+.rc-slider-track {
+  background-color: transparent !important;
+}
+
+.rc-slider-handle {
+  border: solid 2px #989898 !important;
+}

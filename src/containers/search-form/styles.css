@@ -1,0 +1,49 @@
+.search-form-container {
+  flex-basis: 300px;
+}
+
+.flight-type-selector {
+  display: flex;
+}
+
+.flight-type-tab {
+  border: solid 1px #dddddd;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  width: 72px;
+  text-align: center;
+}
+
+.flight-type-tab.selected-tab {
+  border-width: 2px;
+  font-weight: bold;
+}
+
+.search-parameters-container {
+  border: solid 1px #dddddd;
+  padding: 16px 8px 0;
+}
+
+.price-range-holder {
+  border: solid 1px #dddddd;
+  margin-top: 16px;
+  padding: 16px;
+}
+
+.price-range-title {
+  margin-bottom: 16px;
+}
+
+.price-range-numbers {
+  margin-top: 16px;
+}
+
+input {
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  width: calc(100% - 32px);
+}

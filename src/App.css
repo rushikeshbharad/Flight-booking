@@ -1,0 +1,36 @@
+.page-holder {
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #525252;
+  color: #dddddd;
+  height: calc(100% - 80px);
+  margin: 40px 160px;
+  padding: 16px;
+}
+
+.content-holder{
+  display: flex;
+}
+
+@media screen and (max-width: 1100px) {
+  .content-holder {
+    display: block;
+  }
+
+  .page-holder{
+    width: 480px;
+    margin: 40px auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content-holder {
+    display: block;
+  }
+
+  .page-holder {
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+  }
+}
