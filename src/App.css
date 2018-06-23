@@ -1,3 +1,9 @@
+.disclaimer {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
 .page-holder {
   border-radius: 4px;
   box-sizing: border-box;

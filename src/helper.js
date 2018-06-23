@@ -1,5 +1,5 @@
 import moment from 'moment';
-import TempDB from './temp-db';
+import { db as TempDB, environment } from './temp-db/constants';
 
 export const isInSameDate = (timestamp1, timestamp2) => {
   const moment1 = moment(timestamp1 * 1000);
@@ -11,13 +11,18 @@ export const isInSameDate = (timestamp1, timestamp2) => {
 
 export const isInBetween = ({ val, min, max }) => val > min && val < max;
 
-export const getFilteredFlights = ({ from, to, departure, minPrice, maxPrice }) =>
-  TempDB.filter(flight => {
-    return flight.from.toLocaleLowerCase() === from.toLocaleLowerCase()
-      && flight.to.toLocaleLowerCase() === to.toLocaleLowerCase()
-      && isInSameDate(flight.departs, departure)
-      && isInBetween({ val: flight.fare, min: minPrice, max: maxPrice });
+export const getFilteredFlights = ({ from, to, departure, minPrice, maxPrice }) => {
+  if (environment.dev) {
+    return getRandomFlights({ minPrice, maxPrice });
+  }
+
+  return TempDB.filter(flight => {
+	  return flight.from.toLocaleLowerCase() === from.toLocaleLowerCase()
+		  && flight.to.toLocaleLowerCase() === to.toLocaleLowerCase()
+		  && isInSameDate(flight.departs, departure)
+		  && isInBetween({ val: flight.fare, min: minPrice, max: maxPrice });
   });
+}
 
 export const getRandomFlights = ({ minPrice, maxPrice }) => {
   const totalFlights = TempDB.length;

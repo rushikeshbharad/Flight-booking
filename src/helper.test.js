@@ -7,6 +7,8 @@ import {
   getRandomFlights
 } from './helper';
 import { expect } from 'chai';
+import sinon from 'sinon';
+import { environment } from './temp-db/constants';
 
 describe('isInSameDate', () => {
   it('returns false timestamps are in different dates', () => {
@@ -63,6 +65,11 @@ describe('getStandardTime', () => {
 
 
 describe('getFilteredFlights', () => {
+  beforeEach(() => {
+	  sinon.stub(environment, 'dev').returns(false);
+	  environment.dev = false;
+  });
+
   it('returns empty array if flights are not available', () => {
     const result = getFilteredFlights({
       from: 'Pune',

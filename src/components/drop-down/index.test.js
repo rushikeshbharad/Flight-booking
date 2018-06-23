@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import { render, mount, shallow } from 'enzyme';
+import { render } from 'enzyme';
 import DropDown from './index';
 
 describe('<DropDown />', () => {

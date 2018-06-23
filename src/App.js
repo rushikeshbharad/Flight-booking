@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import classnames from 'classnames/bind';
 import moment from 'moment';
 import PageHeader from './containers/header';
 import SeatchForm from './containers/search-form';
 import ResultItems from './containers/result-items';
 import { getFilteredFlights, getRandomFlights } from './helper';
+import { environment } from './temp-db/constants';
 import Styles from './App.css';
 
 const cx = classnames.bind(Styles);
@@ -54,21 +55,24 @@ class App extends Component {
       ) || [];
 
     return (
-      <div className={cx('page-holder')}>
-        <PageHeader />
-        <div className={cx('content-holder')}>
-          <SeatchForm updateReturn={this.updateReturn} onUpdateSearchData={this.onUpdateSearchData} />
-          <ResultItems
-            from={from}
-            to={to}
-            isReturn={this.state.isReturn}
-            upFlights={upFlights}
-            downFlights={downFlights}
-            departureDate={departureDate}
-            returnDate={returnDate}
-          />
+      <Fragment>
+        {environment.dev && <div className={cx('disclaimer')}>* Currently, mock data is being shown</div>}
+        <div className={cx('page-holder')}>
+          <PageHeader />
+          <div className={cx('content-holder')}>
+            <SeatchForm updateReturn={this.updateReturn} onUpdateSearchData={this.onUpdateSearchData} />
+            <ResultItems
+              from={from}
+              to={to}
+              isReturn={this.state.isReturn}
+              upFlights={upFlights}
+              downFlights={downFlights}
+              departureDate={departureDate}
+              returnDate={returnDate}
+            />
+          </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
