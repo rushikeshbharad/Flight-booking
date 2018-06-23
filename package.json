@@ -1,5 +1,6 @@
 {
   "name": "my-app",
+  "homepage": "http://rushikeshbharad.github.io/Flight-booking",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,9 +22,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom --watchAll",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
